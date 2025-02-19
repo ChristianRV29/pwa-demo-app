@@ -1,8 +1,8 @@
-import './App.css'
+import { Dashboard } from "@pages"
 
 function App() {
   return (
-    <h1>hello world!</h1>
+    <Dashboard />
   )
 }
 
