@@ -11,8 +11,10 @@
       "@api": ["src/api"],
       "@components": ["src/components"],
       "@hooks": ["src/hooks"],
+      "@layouts": ["src/layouts"],
       "@pages": ["src/pages"],
-      "@utils": ["src/utils"]
+      "@theme": ["src/theme"],
+      "@utils": ["src/utils"],
     },
 
     /* Bundler mode */
