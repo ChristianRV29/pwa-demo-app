@@ -1,5 +1,10 @@
+import { SearchBar, ToolBar } from '@components'
+import { MainLayout } from '@layouts'
+
 export const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
+	return (
+		<MainLayout>
+			<ToolBar />
+		</MainLayout>
+	)
 }
