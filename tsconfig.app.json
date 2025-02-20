@@ -6,6 +6,16 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api": ["src/api"],
+      "@components": ["src/components"],
+      "@hooks": ["src/hooks"],
+      "@layouts": ["src/layouts"],
+      "@pages": ["src/pages"],
+      "@theme": ["src/theme"],
+      "@utils": ["src/utils"],
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
