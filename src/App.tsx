@@ -1,6 +1,7 @@
 import { DialogTodo, FAB, TodoList, ToolBar } from '@components'
 import { useTodos } from '@hooks'
 import { MainLayout } from '@layouts'
+import { CircularProgress, Typography } from '@mui/material'
 
 function App() {
 	const {
@@ -13,6 +14,8 @@ function App() {
 		setSearchTerm,
 		todos,
 		toggleCompleted,
+		isLoadingTodos,
+		todoError,
 	} = useTodos()
 
 	return (
@@ -23,7 +26,16 @@ function App() {
 				setCurrentFilter={setCurrentFilter}
 				setSearchTerm={setSearchTerm}
 			/>
-			<TodoList onCompleted={toggleCompleted} todos={todos} />
+			{todoError && (
+				<Typography variant="body2" sx={{ color: 'error.main' }}>
+					{todoError.message}
+				</Typography>
+			)}
+			{isLoadingTodos ? (
+				<CircularProgress sx={{ color: 'main.primary', margin: 'auto' }} />
+			) : (
+				<TodoList onCompleted={toggleCompleted} todos={todos} />
+			)}
 			<DialogTodo
 				open={dialogVisible}
 				onClose={() => setDialogVisible(false)}
