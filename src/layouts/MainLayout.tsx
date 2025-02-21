@@ -7,6 +7,7 @@ const Wrapper = styled(Box)`
 `
 
 const ContentContainer = styled(Container)(({ theme }) => ({
+	position: 'relative',
 	padding: theme.spacing(2),
 
 	[theme.breakpoints.up('md')]: {

@@ -1,14 +1,17 @@
-import { TodoList, ToolBar } from '@components'
+import { DialogTodo, FAB, TodoList, ToolBar } from '@components'
 import { useTodos } from '@hooks'
 import { MainLayout } from '@layouts'
 
 function App() {
 	const {
-		todos,
-		searchTerm,
+		createNewTodo,
 		currentFilter,
+		dialogVisible,
+		searchTerm,
 		setCurrentFilter,
+		setDialogVisible,
 		setSearchTerm,
+		todos,
 		toggleCompleted,
 	} = useTodos()
 
@@ -21,6 +24,17 @@ function App() {
 				setSearchTerm={setSearchTerm}
 			/>
 			<TodoList onCompleted={toggleCompleted} todos={todos} />
+			<DialogTodo
+				open={dialogVisible}
+				onClose={() => setDialogVisible(false)}
+				onAdd={createNewTodo}
+			/>
+
+			<FAB
+				onPlusClick={() => {
+					setDialogVisible(true)
+				}}
+			/>
 		</MainLayout>
 	)
 }
