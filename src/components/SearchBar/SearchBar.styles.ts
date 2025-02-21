@@ -4,13 +4,17 @@ export const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
 	backgroundColor: lighten(theme.palette.secondary.main, 0.6),
 	width: '100%',
+	maxWidth: '8rem',
 	borderRadius: theme.spacing(10),
+
 	'&:hover': {
 		backgroundColor: lighten(theme.palette.secondary.main, 0.75),
 	},
+
 	[theme.breakpoints.up('sm')]: {
 		marginLeft: theme.spacing(1),
 		width: 'auto',
+		maxWidth: 'unset',
 	},
 }))
 
