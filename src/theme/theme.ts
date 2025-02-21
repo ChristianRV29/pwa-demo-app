@@ -4,14 +4,14 @@ const theme = createTheme({
 	cssVariables: true,
 	palette: {
 		primary: {
-			main: '#556e91',
-			light: '#cfd7e3',
-			dark: '#263140',
+			main: '#578fca',
+			light: '#c5d8ed',
+			dark: '#254b74',
 		},
 		secondary: {
-			main: '#999999',
-			light: '#bfbfbf',
-			dark: '#737373',
+			main: '#bcccdc',
+			light: '#cdd9e5',
+			dark: '#466686',
 		},
 		success: {
 			main: '#00cc00',
@@ -29,8 +29,8 @@ const theme = createTheme({
 			dark: '#cca300',
 		},
 		text: {
-			primary: '#000000',
-			secondary: '#FFFFFF',
+			primary: '#2c4054',
+			secondary: '#ffffff',
 		},
 	},
 })

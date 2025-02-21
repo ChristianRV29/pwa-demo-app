@@ -14,6 +14,7 @@
       "@layouts": ["src/layouts"],
       "@pages": ["src/pages"],
       "@theme": ["src/theme"],
+      "@types": ["src/types"],
       "@utils": ["src/utils"],
     },
 
