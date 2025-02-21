@@ -1,16 +1,29 @@
-import { useState } from 'react'
 import { Box, Stack } from '@mui/material'
 
 import { SearchBar, CustomChip } from '@components'
+import { Filter as ActiveChip } from '@types'
+
 import { StyledToolbar } from './ToolBar.styles'
 
-type ActiveChip = 'all' | 'completed' | 'pending'
+interface ToolBarProps {
+	searchTerm: string
+	setSearchTerm: (searchTerm: string) => void
+	currentFilter: ActiveChip
+	setCurrentFilter: (filter: ActiveChip) => void
+}
 
-export const ToolBar = () => {
-	const [activeChip, setActiveChip] = useState<ActiveChip>('all')
-
+export const ToolBar = ({
+	currentFilter: activeChip,
+	setCurrentFilter: setActiveChip,
+	searchTerm,
+	setSearchTerm,
+}: ToolBarProps) => {
 	const toggleActiveChip = (label: string) => {
 		setActiveChip(label.toLowerCase() as ActiveChip)
+	}
+
+	const onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchTerm(event.target.value)
 	}
 
 	return (
@@ -36,7 +49,7 @@ export const ToolBar = () => {
 						variant="outlined"
 					/>
 				</Stack>
-				<SearchBar />
+				<SearchBar value={searchTerm} onChange={onChangeSearch} />
 			</StyledToolbar>
 		</Box>
 	)
