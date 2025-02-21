@@ -6,6 +6,7 @@ export const StyledListItem = styled(ListItem)(({ theme }) => ({
 	color: theme.palette.text.primary,
 	display: 'flex',
 	flexDirection: 'row',
+	justifyContent: 'space-between',
 	boxShadow: theme.shadows[3],
 }))
 

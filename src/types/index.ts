@@ -4,3 +4,5 @@ export type Todo = {
 	completed: boolean
 	title: string
 }
+
+export type Filter = 'all' | 'completed' | 'pending'
