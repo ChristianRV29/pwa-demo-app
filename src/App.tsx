@@ -20,6 +20,11 @@ function App() {
 
 	return (
 		<MainLayout>
+			<img
+				src="/todo-image.png"
+				alt="Todo app image"
+				style={{ height: 100, width: 100 }}
+			/>
 			<ToolBar
 				currentFilter={currentFilter}
 				searchTerm={searchTerm}
