@@ -2,34 +2,15 @@ import { useMemo, useState } from 'react'
 
 import { Filter, Todo } from '@types'
 
-const HARD_CODED_TODOS: Todo[] = [
-	{
-		id: 1,
-		userId: 1,
-		completed: false,
-		title: 'Learn TypeScript',
-	},
-	{
-		id: 2,
-		userId: 1,
-		completed: true,
-		title: 'Learn React',
-	},
-	{
-		id: 3,
-		userId: 1,
-		completed: false,
-		title: 'Learn Next.js',
-	},
-]
-
 export const useTodos = () => {
-	const [todos, setTodos] = useState<Todo[]>(HARD_CODED_TODOS)
+	const [todos, setTodos] = useState<Todo[]>([])
 	const [currentFilter, setCurrentFilter] = useState<Filter>('all')
 	const [searchTerm, setSearchTerm] = useState<string>('')
 
+	const [dialogVisible, setDialogVisible] = useState<boolean>(false)
+
 	const filteredTodos = useMemo(() => {
-		if (!HARD_CODED_TODOS.length) return []
+		if (!todos.length) return []
 
 		return todos
 			.filter(todo => {
@@ -42,6 +23,20 @@ export const useTodos = () => {
 				return todo.title.toLowerCase().includes(searchTerm.toLowerCase())
 			})
 	}, [todos, currentFilter, searchTerm])
+
+	const createNewTodo = (title: string) => {
+		setCurrentFilter('all')
+
+		const newTodo: Todo = {
+			id: todos.length + 1,
+			userId: 1,
+			completed: false,
+			title,
+		}
+
+		setTodos([...todos, newTodo])
+		setDialogVisible(false)
+	}
 
 	const toggleCompleted = (id: number, completed: boolean) => {
 		const newTodos = todos.map(todo => {
@@ -56,9 +51,12 @@ export const useTodos = () => {
 	}
 
 	return {
+		createNewTodo,
 		currentFilter,
+		dialogVisible,
 		searchTerm,
 		setCurrentFilter,
+		setDialogVisible,
 		setSearchTerm,
 		todos: filteredTodos,
 		toggleCompleted,
